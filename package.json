@@ -1,0 +1,31 @@
+{
+  "name": "claude-api-practical-project",
+  "version": "1.0.0",
+  "description": "Claude API实战项目 - 智能对话学习助手",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "web": "node src/server/server.js",
+    "dev:web": "node --watch src/server/server.js",
+    "test": "node src/test/test.js"
+  },
+  "keywords": [
+    "claude",
+    "anthropic",
+    "ai",
+    "chatbot"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "boxen": "^8.0.1",
+    "chalk": "^5.4.1",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.7",
+    "express": "^4.22.1",
+    "ora": "^8.1.1"
+  }
+}

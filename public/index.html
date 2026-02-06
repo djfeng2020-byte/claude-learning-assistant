@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clever Assistant - 智能对话助手</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>🤖 Clever Assistant</h1>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>助手模式</h3>
+                    <div id="mode-list" class="mode-list">
+                        <!-- 模式列表将通过 JS 动态生成 -->
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3>状态信息</h3>
+                    <div class="status-info">
+                        <div class="status-item">
+                            <span class="status-label">当前模式:</span>
+                            <span id="current-mode" class="status-value">-</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">对话轮数:</span>
+                            <span id="chat-rounds" class="status-value">0</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Token 使用:</span>
+                            <span id="token-usage" class="status-value">0</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">当前成本:</span>
+                            <span id="current-cost" class="status-value">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3>操作</h3>
+                    <div class="action-buttons">
+                        <button id="btn-clear" class="btn btn-secondary">🗑️ 清空历史</button>
+                        <button id="btn-report" class="btn btn-secondary">📊 详细报告</button>
+                        <button id="btn-reset" class="btn btn-danger">🔄 重置会话</button>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 主聊天区 -->
+        <main class="chat-area">
+            <div class="chat-header">
+                <h2 id="header-mode-name">智能助手</h2>
+                <div id="connection-status" class="status-indicator online">已连接</div>
+            </div>
+
+            <div id="chat-messages" class="chat-messages">
+                <!-- 欢迎消息 -->
+                <div class="message assistant">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <p>你好！我是你的智能助手。我可以帮助你：</p>
+                        <ul>
+                            <li>💻 编程和代码问题</li>
+                            <li>📚 学习和理解新概念</li>
+                            <li>✍️ 写作和文本编辑</li>
+                            <li>🌐 中英文翻译</li>
+                        </ul>
+                        <p>请选择左侧的模式开始对话，或直接发送消息！</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <textarea
+                        id="chat-input"
+                        class="chat-input"
+                        placeholder="输入消息... (Shift+Enter 换行, Enter 发送)"
+                        rows="1"
+                    ></textarea>
+                    <button id="btn-send" class="btn-send">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span class="hint">按 Enter 发送，Shift+Enter 换行</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 报告模态框 -->
+    <div id="report-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📊 详细报告</h2>
+                <button id="btn-close-modal" class="btn-close">&times;</button>
+            </div>
+            <div id="report-content" class="modal-body">
+                <!-- 报告内容将通过 JS 动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
